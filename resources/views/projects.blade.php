@@ -23,8 +23,10 @@
                                 @endforeach
                             </td>
                             <td>
-                                <form action="" method="POST">
-                                    <button type="submit" name="delete" value=""
+                                <form action="{{ route('projects.destroy', $project['id']) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" value="DELETE"
                                         onclick="return confirm('Are you sure?')">Delete</button>
                                 </form>
                                 <form action="" method="POST">
@@ -35,6 +37,13 @@
                         </tr>
                     @endforeach
                 </table>
+
+                <form class="new-entry" action="/projects" method="POST">
+                    @csrf
+                    <label for="new_project">Create a new project:</label><br>
+                    <input type="text" name="new_project" placeholder="Enter project title" />
+                    <button type="submit" name="create">Create</button>
+                </form>
             </div>
         </div>
     </div>
