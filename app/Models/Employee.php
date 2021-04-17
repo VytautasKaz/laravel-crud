@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
     use HasFactory;
+
+    public function project()
+    {
+        $this->belongsTo('App\Models\Project');
+    }
 }
