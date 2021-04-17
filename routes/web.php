@@ -24,13 +24,13 @@ Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.
 Route::get('/employees/{id}', [EmployeeController::class, 'show'])->name('employees.show');
 Route::post('/employees', [EmployeeController::class, 'store'])->name('employees.store');
 Route::delete('/employees/{id}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
-// Route::put('/employees/{id}', [EmployeeController::class, 'update'])->name('employees.update');
+Route::put('/employees/{id}', [EmployeeController::class, 'update'])->name('employees.update');
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects.show');
 Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
 Route::delete('/projects/{id}', [ProjectController::class, 'destroy'])->name('projects.destroy');
-// Route::put('/projects/{id}', [ProjectController::class, 'update'])->name('projects.update');
+Route::put('/projects/{id}', [ProjectController::class, 'update'])->name('projects.update');
 
 Auth::routes();
 

@@ -29,7 +29,7 @@ class ProjectController extends Controller
         //     return redirect('/posts')->with('status_error', 'Post creation failed.');
         // }
         return ($newProj->save() == 1)
-            ? redirect('/projects')->with('status_success', 'Employees added successfully!')
+            ? redirect('/projects')->with('status_success', 'Employee added successfully!')
             : redirect('/projects')->with('status_error', 'Employee addition failed.');
     }
 
@@ -37,5 +37,17 @@ class ProjectController extends Controller
     {
         Project::destroy($id);
         return redirect('/projects')->with('status_success', 'Project deleted!');
+    }
+
+    public function update($id, Request $request)
+    {
+        $this->validate($request, [
+            'upd_title' => 'required|max:32',
+        ]);
+        $up_proj = Project::find($id);
+        $up_proj->title = $request['upd_title'];
+        return ($up_proj->save() == 1) ?
+            redirect('/projects')->with('status_success', 'Project info updated!') :
+            redirect('/projects')->with('status_error', 'Project update failed.');
     }
 }

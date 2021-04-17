@@ -5,6 +5,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if (session('status_success'))
+                    <p style="color: green"><b>{{ session('status_success') }}</b></p>
+                @else
+                    <p style="color: red"><b>{{ session('status_error') }}</b></p>
+                @endif
                 <table class="my_table">
                     <tr>
                         <th>#</th>
@@ -24,8 +29,9 @@
                                     <button type="submit" value="DELETE"
                                         onclick="return confirm('Are you sure?')">Delete</button>
                                 </form>
-                                <form action="" method="POST">
-                                    <input type="hidden" name="current_name" value="" />
+                                <form action="{{ route('employees.show', $employee['id']) }}" method="GET">
+                                    @method('PUT')
+                                    @csrf
                                     <button type="submit" name="update" value="">Update</button>
                                 </form>
                             </td>
@@ -36,15 +42,18 @@
                 <form class="new-entry" action="/employees" method="POST">
                     @csrf
                     <label for="">Add a new employee:</label><br>
-                    <input type="text" name="fname" placeholder="Enter employee name" />
-                    <select name="assign_proj">
+                    <input type="text" name="fname" placeholder="Enter employee name" /><br>
+                    @error('fname')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <select style="margin-top: 10px;" name="assign_proj">
                         <label for=""></label>
                         <option value=""></option>
                         @foreach (App\Models\Project::all() as $project)
                             <option value="{{ $project['id'] }}"> {{ $project['title'] }} </option>
                         @endforeach
-                    </select>
-                    <button type="submit" name="create">Add</button>
+                    </select><br>
+                    <button style="margin-top: 10px;" type="submit" name="create">Add</button>
                 </form>
             </div>
         </div>

@@ -39,4 +39,17 @@ class EmployeeController extends Controller
         Employee::destroy($id);
         return redirect('/employees')->with('status_success', 'Employee deleted!');
     }
+
+    public function update($id, Request $request)
+    {
+        $this->validate($request, [
+            'fname' => 'required|max:32',
+        ]);
+        $up_emp = Employee::find($id);
+        $up_emp->name = $request['fname'];
+        $up_emp->project_id = $request['assign_proj'];
+        return ($up_emp->save() == 1) ?
+            redirect('/employees')->with('status_success', 'Employee info updated!') :
+            redirect('/employees')->with('status_error', 'Employee info update failed.');
+    }
 }
