@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <table>
+                <table class="my_table">
                     <tr>
                         <th>#</th>
                         <th>Name</th>
@@ -15,8 +15,8 @@
                     @foreach ($employees as $employee)
                         <tr>
                             <td>{{ ++$counter }}</td>
-                            <td>{{ $employee['emp_name'] }}</td>
-                            <td>Project</td>
+                            <td>{{ $employee['name'] }}</td>
+                            <td>{{ $employee->project['title'] }}</td>
                             <td>
                                 <form action="" method="POST">
                                     <button type="submit" name="delete" value=""

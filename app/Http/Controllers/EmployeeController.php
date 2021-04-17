@@ -11,4 +11,9 @@ class EmployeeController extends Controller
     {
         return view('employees', ['employees' => Employee::all()]);
     }
+
+    public function show($id)
+    {
+        return view('employee', ['employee' => Employee::find($id)]);
+    }
 }

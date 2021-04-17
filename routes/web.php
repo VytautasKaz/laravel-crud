@@ -21,8 +21,10 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index');
+Route::get('/employees/{id}', [EmployeeController::class, 'show'])->name('employees.show');
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects.show');
 
 Auth::routes();
 

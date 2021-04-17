@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <table>
+                <table class="my_table">
                     <tr>
                         <th>#</th>
                         <th>Project</th>
@@ -16,14 +16,19 @@
                         <tr>
                             <td>{{ ++$counter }}</td>
                             <td>{{ $project['title'] }}</td>
-                            <td>Employee(s)</td>
+                            <td>
+                                @foreach ($project->employees as $employee)
+                                    {{ $employee['name'] }}
+                                    {{ !$loop->last ? ', ' : '' }}
+                                @endforeach
+                            </td>
                             <td>
                                 <form action="" method="POST">
                                     <button type="submit" name="delete" value=""
-                                        onclick="return confirm(' Are you sure?')">Delete</button>
+                                        onclick="return confirm('Are you sure?')">Delete</button>
                                 </form>
                                 <form action="" method="POST">
-                                    <input type="hidden" name="current_project" value="' . $row['title'] . '" />
+                                    <input type="hidden" name="current_project" value="" />
                                     <button type="submit" name="update" value="">Update</button>
                                 </form>
                             </td>

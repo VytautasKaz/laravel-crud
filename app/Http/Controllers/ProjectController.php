@@ -11,4 +11,9 @@ class ProjectController extends Controller
     {
         return view('projects', ['projects' => Project::all()]);
     }
+
+    public function show($id)
+    {
+        return view('project', ['project' => Project::find($id)]);
+    }
 }

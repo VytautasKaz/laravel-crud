@@ -11,6 +11,6 @@ class Project extends Model
 
     public function employees()
     {
-        $this->hasMany('App\Models\Employee');
+        return $this->hasMany('App\Models\Employee');
     }
 }

@@ -29,5 +29,9 @@ class ProjectSeeder extends Seeder
         $proj4 = new Project();
         $proj4->title = "Python";
         $proj4->save();
+
+        $proj5 = new Project();
+        $proj5->title = "Haskell";
+        $proj5->save();
     }
 }
