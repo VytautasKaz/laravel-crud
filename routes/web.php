@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,13 +20,9 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/employees', function () {
-    return view('employees');
-})->name('employees');
+Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index');
 
-Route::get('/projects', function () {
-    return view('projects');
-})->name('projects');
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 
 Auth::routes();
 

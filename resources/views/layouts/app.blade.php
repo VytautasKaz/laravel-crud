@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -40,11 +41,11 @@
                         <li class="nav-item {{ Request::routeIs('home') ? 'active' : '' }}">
                             <a class="nav-link" href="/">Home</a>
                         </li>
-                        <li class="nav-item {{ Request::routeIs('employees') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('employees') }}">Employees</a>
+                        <li class="nav-item {{ Request::routeIs('employees.index') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('employees.index') }}">Employees</a>
                         </li>
-                        <li class="nav-item {{ Request::routeIs('projects') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('projects') }}">Projects</a>
+                        <li class="nav-item {{ Request::routeIs('projects.index') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('projects.index') }}">Projects</a>
                         </li>
                     </ul>
 
