@@ -29,3 +29,7 @@ Route::get('/projects', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::any('/{any}', function () {
+    print("404 - page not found.");
+})->where('any', '.*');
