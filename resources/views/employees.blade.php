@@ -15,46 +15,51 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Projects</th>
-                        <th>Actions</th>
+                        @if (auth()->check())
+                            <th>Actions</th>
+                        @endif
                     </tr>
                     @foreach ($employees as $employee)
                         <tr>
                             <td>{{ ++$counter }}</td>
                             <td>{{ $employee['name'] }}</td>
                             <td>{{ $employee->project['title'] }}</td>
-                            <td>
-                                <form action="{{ route('employees.destroy', $employee['id']) }}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" value="DELETE"
-                                        onclick="return confirm('Are you sure?')">Delete</button>
-                                </form>
-                                <form action="{{ route('employees.show', $employee['id']) }}" method="GET">
-                                    @method('PUT')
-                                    @csrf
-                                    <button type="submit" name="update" value="">Update</button>
-                                </form>
-                            </td>
+                            @if (auth()->check())
+                                <td>
+                                    <form action="{{ route('employees.destroy', $employee['id']) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" value="DELETE"
+                                            onclick="return confirm('Are you sure?')">Delete</button>
+                                    </form>
+                                    <form action="{{ route('employees.show', $employee['id']) }}" method="GET">
+                                        @method('PUT')
+                                        @csrf
+                                        <button type="submit" name="update" value="">Update</button>
+                                    </form>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </table>
-
-                <form class="new-entry" action="/employees" method="POST">
-                    @csrf
-                    <label for="">Add a new employee:</label><br>
-                    <input type="text" name="fname" placeholder="Enter employee name" /><br>
-                    @error('fname')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    <select style="margin-top: 10px;" name="assign_proj">
-                        <label for=""></label>
-                        <option value=""></option>
-                        @foreach (App\Models\Project::all() as $project)
-                            <option value="{{ $project['id'] }}"> {{ $project['title'] }} </option>
-                        @endforeach
-                    </select><br>
-                    <button style="margin-top: 10px;" type="submit" name="create">Add</button>
-                </form>
+                @if (auth()->check())
+                    <form class="new-entry" action="/employees" method="POST">
+                        @csrf
+                        <label for="">Add a new employee:</label><br>
+                        <input type="text" name="fname" placeholder="Enter employee name" /><br>
+                        @error('fname')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        <select style="margin-top: 10px;" name="assign_proj">
+                            <label for=""></label>
+                            <option value=""></option>
+                            @foreach (App\Models\Project::all() as $project)
+                                <option value="{{ $project['id'] }}"> {{ $project['title'] }} </option>
+                            @endforeach
+                        </select><br>
+                        <button style="margin-top: 10px;" type="submit" name="create">Add</button>
+                    </form>
+                @endif
             </div>
         </div>
     </div>

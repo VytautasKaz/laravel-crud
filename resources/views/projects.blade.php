@@ -15,7 +15,9 @@
                         <th>#</th>
                         <th>Project</th>
                         <th>Employee(s)</th>
-                        <th>Actions</th>
+                        @if (auth()->check())
+                            <th>Actions</th>
+                        @endif
                     </tr>
                     @foreach ($projects as $project)
                         <tr>
@@ -27,31 +29,34 @@
                                     {{ !$loop->last ? ', ' : '' }}
                                 @endforeach
                             </td>
-                            <td>
-                                <form action="{{ route('projects.destroy', $project['id']) }}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
-                                </form>
-                                <form action="{{ route('projects.show', $project['id']) }}" method="GET">
-                                    @method('PUT')
-                                    @csrf
-                                    <button type="submit">Update</button>
-                                </form>
-                            </td>
+                            @if (auth()->check())
+                                <td>
+                                    <form action="{{ route('projects.destroy', $project['id']) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                                    </form>
+                                    <form action="{{ route('projects.show', $project['id']) }}" method="GET">
+                                        @method('PUT')
+                                        @csrf
+                                        <button type="submit">Update</button>
+                                    </form>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </table>
-
-                <form class="new-entry" action="/projects" method="POST">
-                    @csrf
-                    <label for="new_project">Create a new project:</label><br>
-                    <input type="text" name="new_project" placeholder="Enter project title" />
-                    @error('new_project')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    <button type="submit" name="create">Create</button>
-                </form>
+                @if (auth()->check())
+                    <form class="new-entry" action="/projects" method="POST">
+                        @csrf
+                        <label for="new_project">Create a new project:</label><br>
+                        <input type="text" name="new_project" placeholder="Enter project title" />
+                        @error('new_project')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        <button type="submit" name="create">Create</button>
+                    </form>
+                @endif
             </div>
         </div>
     </div>
