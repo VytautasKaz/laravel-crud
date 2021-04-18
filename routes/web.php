@@ -37,5 +37,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::any('/{any}', function () {
-    print("404 - page not found.");
+    return view('404');
+    // print("404 - page not found.");
 })->where('any', '.*');
