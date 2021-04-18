@@ -36,6 +36,10 @@ CRUD (create, read, update, delete) app developed with Laravel framwork. Guest u
     -   Run **php artisan serve**
 -   Follow the link that appears after running 'php artisan serve'.
 
+## Things to improve:
+
+-   Currently, when deleting a project, the action also deletes all employees that were assigned to that project.
+
 ## Author:
 
 [Vytautas K.](https://github.com/VytautasKaz)
