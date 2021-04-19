@@ -15,9 +15,11 @@
                     <label for="assign_proj">Assign/Re-assign project:</label><br>
                     <select style="margin-bottom: 10px; width: 190px;" name="assign_proj">
                         <label for=""></label>
-                        <option value="" selected disabled>Select a project</option>
+                        <option></option>
                         @foreach (App\Models\Project::all() as $project)
-                            <option value="{{ $project['id'] }}"> {{ $project['title'] }} </option>
+                            {{-- <option value="{{ $project['id'] }}"> {{ $project['title'] }} </option> --}}
+                            <option value="{{ $project['id'] }}" @if ($project['id'] == $employee['project_id']) selected="selected" @endif>{{ $project['title'] }}
+                            </option>
                         @endforeach
                     </select><br>
                     <button type="submit">Update</button>
