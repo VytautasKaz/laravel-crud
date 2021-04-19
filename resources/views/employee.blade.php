@@ -17,7 +17,6 @@
                         <label for=""></label>
                         <option></option>
                         @foreach (App\Models\Project::all() as $project)
-                            {{-- <option value="{{ $project['id'] }}"> {{ $project['title'] }} </option> --}}
                             <option value="{{ $project['id'] }}" @if ($project['id'] == $employee['project_id']) selected="selected" @endif>{{ $project['title'] }}
                             </option>
                         @endforeach
