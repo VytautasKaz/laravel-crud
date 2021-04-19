@@ -13,9 +13,9 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     <label for="assign_proj">Assign/Re-assign project:</label><br>
-                    <select style="margin-bottom: 10px;" name="assign_proj">
+                    <select style="margin-bottom: 10px; width: 190px;" name="assign_proj">
                         <label for=""></label>
-                        <option value=""></option>
+                        <option value="" selected disabled>Select a project</option>
                         @foreach (App\Models\Project::all() as $project)
                             <option value="{{ $project['id'] }}"> {{ $project['title'] }} </option>
                         @endforeach

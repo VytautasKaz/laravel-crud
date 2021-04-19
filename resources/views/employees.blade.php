@@ -33,7 +33,6 @@
                                             onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
                                     <form action="{{ route('employees.show', $employee['id']) }}" method="GET">
-                                        @method('PUT')
                                         @csrf
                                         <button type="submit" name="update" value="">Update</button>
                                     </form>
@@ -50,9 +49,9 @@
                         @error('fname')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
-                        <select style="margin-top: 10px;" name="assign_proj">
+                        <select style="margin-top: 10px; width: 190px;" name="assign_proj">
                             <label for=""></label>
-                            <option value=""></option>
+                            <option value="" selected disabled>Select a project</option>
                             @foreach (App\Models\Project::all() as $project)
                                 <option value="{{ $project['id'] }}"> {{ $project['title'] }} </option>
                             @endforeach
