@@ -30,7 +30,7 @@ class EmployeeController extends Controller
         //     return redirect('/posts')->with('status_error', 'Post creation failed.');
         // }
         return ($newEmp->save() == 1)
-            ? redirect('/employees')->with('status_success', 'Employees added successfully!')
+            ? redirect('/employees')->with('status_success', 'Employee added successfully!')
             : redirect('/employees')->with('status_error', 'Employee addition failed.');
     }
 
