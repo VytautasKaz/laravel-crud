@@ -16,7 +16,7 @@ CRUD (create, read, update, delete) app developed with Laravel framwork. Guest u
     -   Update an existing project (change title).
     -   Delete a project from the table.
 
-## Launch instrucions:
+## Launch instructions:
 
 -   If you do not have composer installed in you system, install it (installation instructions [here](https://getcomposer.org/download)).
 -   Clone this repository or download it as a ZIP package.
