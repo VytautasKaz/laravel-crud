@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `sp5db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `sp5db`;
+CREATE DATABASE  IF NOT EXISTS `sp5db_test` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `sp5db_test`;
 -- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: sp5db
+-- Host: 127.0.0.1    Database: sp5db_test
 -- ------------------------------------------------------
 -- Server version	8.0.18
 
@@ -32,8 +32,8 @@ CREATE TABLE `employees` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `employees_project_id_foreign` (`project_id`),
-  CONSTRAINT `employees_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CONSTRAINT `employees_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (1,'Mohammed',2,'2021-04-17 14:18:31','2021-04-17 17:04:12'),(2,'Ronan',2,'2021-04-17 14:18:31','2021-04-17 14:18:31'),(3,'Jessica',3,'2021-04-17 14:18:31','2021-04-17 14:18:31'),(4,'Blake',1,'2021-04-17 14:18:31','2021-04-17 14:18:31'),(5,'Ashley',5,'2021-04-17 14:18:31','2021-04-17 14:18:31');
+INSERT INTO `employees` VALUES (1,'Mohamed',NULL,'2021-04-19 05:01:58','2021-04-19 05:01:58'),(2,'Ronan',NULL,'2021-04-19 05:01:58','2021-04-19 05:01:58'),(3,'Jessica',NULL,'2021-04-19 05:01:58','2021-04-19 05:01:58'),(4,'Blake',NULL,'2021-04-19 05:01:58','2021-04-19 05:01:58'),(5,'Ashley',NULL,'2021-04-19 05:01:58','2021-04-19 05:01:58');
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (16,'2014_10_12_000000_create_users_table',1),(17,'2014_10_12_100000_create_password_resets_table',1),(18,'2019_08_19_000000_create_failed_jobs_table',1),(19,'2021_04_17_111057_create_projects_table',1),(20,'2021_04_17_112959_create_employees_table',1);
+INSERT INTO `migrations` VALUES (23,'2014_10_12_000000_create_users_table',1),(24,'2014_10_12_100000_create_password_resets_table',1),(25,'2019_08_19_000000_create_failed_jobs_table',1),(26,'2021_04_17_111057_create_projects_table',1),(27,'2021_04_17_112959_create_employees_table',1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,7 +137,7 @@ CREATE TABLE `projects` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +146,7 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES (1,'PHP','2021-04-17 14:18:31','2021-04-17 14:18:31'),(2,'JS','2021-04-17 14:18:31','2021-04-17 14:18:31'),(3,'Java','2021-04-17 14:18:31','2021-04-17 14:18:31'),(4,'Python','2021-04-17 14:18:31','2021-04-17 14:18:31'),(5,'Haskell','2021-04-17 14:18:31','2021-04-17 14:18:31'),(10,'Ruby','2021-04-17 17:11:02','2021-04-17 17:11:10');
+INSERT INTO `projects` VALUES (1,'PHP','2021-04-19 05:01:58','2021-04-19 05:01:58'),(2,'JS','2021-04-19 05:01:58','2021-04-19 05:01:58'),(3,'Java','2021-04-19 05:01:58','2021-04-19 05:01:58'),(4,'Python','2021-04-19 05:01:58','2021-04-19 05:01:58'),(5,'Haskell','2021-04-19 05:01:58','2021-04-19 05:01:58');
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','admin@admin.com',NULL,'$2y$10$tm4aMpoJkO9RgOGluHB3teB61v.Z.lcxSObqV2ic.B60L3dT5d7He',NULL,'2021-04-17 18:02:25','2021-04-17 18:02:25');
+INSERT INTO `users` VALUES (1,'test','test@test.com',NULL,'$2y$10$H5x9XZdUuttan2nVgExqiOteQiPSoMgywme0pyBT4idWwGVhoMBre',NULL,'2021-04-19 05:02:18','2021-04-19 05:02:18');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -190,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-18 13:50:02
+-- Dump completed on 2021-04-19 11:06:15
