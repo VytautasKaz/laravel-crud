@@ -7,13 +7,13 @@ CRUD (create, read, update, delete) app developed with Laravel framwork. Guest u
 -   Employees table:
 
     -   Add new employees.
-    -   Update existing employees (change name, assign/reassign a project).
+    -   Update existing employees (change the name, assign/reassign a project).
     -   Delete employees from the table.
 
 -   Projects table:
 
-    -   Add a new project.
-    -   Update an existing project (change title).
+    -   Add new projects.
+    -   Update existing projects (change the title).
     -   Delete projects from the table.
 
 ## Launch instructions:
