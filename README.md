@@ -14,7 +14,7 @@ CRUD (create, read, update, delete) app developed with Laravel framwork. Guest u
 
     -   Add a new project.
     -   Update an existing project (change title).
-    -   Delete a project from the table.
+    -   Delete projects from the table.
 
 ## Launch instructions:
 
