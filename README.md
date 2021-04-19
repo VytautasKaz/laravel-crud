@@ -7,14 +7,14 @@ CRUD (create, read, update, delete) app developed with Laravel framwork. Guest u
 -   Employees table:
 
     -   Add new employees.
-    -   Update existing employees (change name, assign/reassign a project).
+    -   Update existing employees (change the name, assign/reassign a project).
     -   Delete employees from the table.
 
 -   Projects table:
 
-    -   Add a new project.
-    -   Update an existing project (change title).
-    -   Delete a project from the table.
+    -   Add new projects.
+    -   Update existing projects (change the title).
+    -   Delete projects from the table.
 
 ## Launch instructions:
 
@@ -34,7 +34,7 @@ CRUD (create, read, update, delete) app developed with Laravel framwork. Guest u
     -   Run **php artisan migrate** to create tables.
     -   Run **php artisan db:seed** to fill tables with data.
     -   Run **php artisan serve**
--   Follow the link that appears after running 'php artisan serve'.
+-   Follow the link that appears in the terminal after running 'php artisan serve'.
 
 ## Author:
 
