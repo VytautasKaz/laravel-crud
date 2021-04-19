@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `sp5db_test` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `sp5db_test`;
+CREATE DATABASE  IF NOT EXISTS `sp5db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `sp5db`;
 -- MySQL dump 10.13  Distrib 8.0.20, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: sp5db_test
+-- Host: 127.0.0.1    Database: sp5db
 -- ------------------------------------------------------
 -- Server version	8.0.18
 
@@ -42,7 +42,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (1,'Mohamed',NULL,'2021-04-19 05:01:58','2021-04-19 05:01:58'),(2,'Ronan',NULL,'2021-04-19 05:01:58','2021-04-19 05:01:58'),(3,'Jessica',NULL,'2021-04-19 05:01:58','2021-04-19 05:01:58'),(4,'Blake',NULL,'2021-04-19 05:01:58','2021-04-19 05:01:58'),(5,'Ashley',NULL,'2021-04-19 05:01:58','2021-04-19 05:01:58');
+INSERT INTO `employees` VALUES (1,'Mohamed',2,'2021-04-19 05:12:09','2021-04-19 05:13:04'),(2,'Ronan',1,'2021-04-19 05:12:09','2021-04-19 05:13:07'),(3,'Jessica',3,'2021-04-19 05:12:09','2021-04-19 05:13:11'),(4,'Blake',1,'2021-04-19 05:12:09','2021-04-19 05:13:15'),(5,'Ashley',2,'2021-04-19 05:12:09','2021-04-19 05:13:19');
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +96,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (23,'2014_10_12_000000_create_users_table',1),(24,'2014_10_12_100000_create_password_resets_table',1),(25,'2019_08_19_000000_create_failed_jobs_table',1),(26,'2021_04_17_111057_create_projects_table',1),(27,'2021_04_17_112959_create_employees_table',1);
+INSERT INTO `migrations` VALUES (21,'2014_10_12_000000_create_users_table',1),(22,'2014_10_12_100000_create_password_resets_table',1),(23,'2019_08_19_000000_create_failed_jobs_table',1),(24,'2021_04_17_111057_create_projects_table',1),(25,'2021_04_17_112959_create_employees_table',1);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +146,7 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES (1,'PHP','2021-04-19 05:01:58','2021-04-19 05:01:58'),(2,'JS','2021-04-19 05:01:58','2021-04-19 05:01:58'),(3,'Java','2021-04-19 05:01:58','2021-04-19 05:01:58'),(4,'Python','2021-04-19 05:01:58','2021-04-19 05:01:58'),(5,'Haskell','2021-04-19 05:01:58','2021-04-19 05:01:58');
+INSERT INTO `projects` VALUES (1,'PHP','2021-04-19 05:12:09','2021-04-19 05:12:09'),(2,'JS','2021-04-19 05:12:09','2021-04-19 05:12:09'),(3,'Java','2021-04-19 05:12:09','2021-04-19 05:12:09'),(4,'Python','2021-04-19 05:12:09','2021-04-19 05:12:09'),(5,'Haskell','2021-04-19 05:12:09','2021-04-19 05:12:09');
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'test','test@test.com',NULL,'$2y$10$H5x9XZdUuttan2nVgExqiOteQiPSoMgywme0pyBT4idWwGVhoMBre',NULL,'2021-04-19 05:02:18','2021-04-19 05:02:18');
+INSERT INTO `users` VALUES (1,'test','test@test.com',NULL,'$2y$10$AruEDwlFppjEBHXHWtttKOBGodw4rPd6KI7Y5foe6qmTGXLM/xilG',NULL,'2021-04-19 05:12:56','2021-04-19 05:12:56');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -190,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-19 11:06:15
+-- Dump completed on 2021-04-19 11:14:38
