@@ -34,7 +34,7 @@ CRUD (create, read, update, delete) app developed with Laravel framwork. Guest u
     -   Run **php artisan migrate** to create tables.
     -   Run **php artisan db:seed** to fill tables with data.
     -   Run **php artisan serve**
--   Follow the link that appears after running 'php artisan serve'.
+-   Follow the link that appears in the terminal after running 'php artisan serve'.
 
 ## Author:
 
