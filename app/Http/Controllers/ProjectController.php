@@ -29,8 +29,8 @@ class ProjectController extends Controller
         //     return redirect('/posts')->with('status_error', 'Post creation failed.');
         // }
         return ($newProj->save() == 1)
-            ? redirect('/projects')->with('status_success', 'Employee added successfully!')
-            : redirect('/projects')->with('status_error', 'Employee addition failed.');
+            ? redirect('/projects')->with('status_success', 'Project added successfully!')
+            : redirect('/projects')->with('status_error', 'Project addition failed.');
     }
 
     public function destroy($id)
