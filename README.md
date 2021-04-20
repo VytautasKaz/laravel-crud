@@ -18,7 +18,7 @@ CRUD (create, read, update, delete) app developed with Laravel framwork. Guest u
 
 ## Launch instructions:
 
--   If you do not have composer installed in you system, install it (installation instructions [here](https://getcomposer.org/download)).
+-   If you do not have composer installed on your system, install it (installation instructions [here](https://getcomposer.org/download)).
 -   Clone this repository or download it as a ZIP package.
 -   Open it with Visual Studio Code or your preferred code editor.
 -   Import 'sp5db.sql' from the project's root directory into your MySql server or create a fresh schema.
