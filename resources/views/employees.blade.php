@@ -34,7 +34,7 @@
                                     </form>
                                     <form action="{{ route('employees.show', $employee['id']) }}" method="GET">
                                         @csrf
-                                        <button type="submit" name="update" value="">Update</button>
+                                        <button type="submit">Update</button>
                                     </form>
                                 </td>
                             @endif
@@ -45,7 +45,7 @@
                     <form class="new-entry" action="/employees" method="POST">
                         @csrf
                         <label for="">Add a new employee:</label><br>
-                        <input type="text" name="fname" placeholder="Enter employee name" /><br>
+                        <input type="text" name="fname" placeholder="Enter employee name" required /><br>
                         @error('fname')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -56,7 +56,7 @@
                                 <option value="{{ $project['id'] }}"> {{ $project['title'] }} </option>
                             @endforeach
                         </select><br>
-                        <button style="margin-top: 10px;" type="submit" name="create">Add</button>
+                        <button style="margin-top: 10px;" type="submit">Add</button>
                     </form>
                 @endif
             </div>

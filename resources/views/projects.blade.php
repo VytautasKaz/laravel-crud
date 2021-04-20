@@ -50,7 +50,7 @@
                     <form class="new-entry" action="/projects" method="POST">
                         @csrf
                         <label for="new_project">Create a new project:</label><br>
-                        <input type="text" name="new_project" placeholder="Enter project title" />
+                        <input type="text" name="new_project" placeholder="Enter project title" required />
                         @error('new_project')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

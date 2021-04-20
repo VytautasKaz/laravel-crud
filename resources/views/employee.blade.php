@@ -8,7 +8,8 @@
                     @method('PUT')
                     @csrf
                     <label for="fname">Update employee name:</label><br>
-                    <input style="margin-bottom: 10px;" type="text" name="fname" value="{{ $employee['name'] }}"><br>
+                    <input style="margin-bottom: 10px;" type="text" name="fname" value="{{ $employee['name'] }}"
+                        required><br>
                     @error('fname')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

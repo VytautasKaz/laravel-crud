@@ -8,7 +8,8 @@
                     @method('PUT')
                     @csrf
                     <label for="fname">Update project title:</label><br>
-                    <input style="margin-bottom: 10px;" type="text" name="upd_title" value="{{ $project['title'] }}"><br>
+                    <input style="margin-bottom: 10px;" type="text" name="upd_title" value="{{ $project['title'] }}"
+                        required><br>
                     @error('upd_title')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
