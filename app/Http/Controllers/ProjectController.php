@@ -25,9 +25,9 @@ class ProjectController extends Controller
 
         $newProj = new Project();
         $newProj->title = $request['new_project'];
-        // if ($newBp->title === NULL or $newBp->content === NULL) {
-        //     return redirect('/posts')->with('status_error', 'Post creation failed.');
-        // }
+        if ($newProj->title === NULL) {
+            return redirect('/projects')->with('status_error', 'Project creation failed.');
+        }
         return ($newProj->save() == 1)
             ? redirect('/projects')->with('status_success', 'Project added successfully!')
             : redirect('/projects')->with('status_error', 'Project addition failed.');
@@ -46,6 +46,9 @@ class ProjectController extends Controller
         ]);
         $up_proj = Project::find($id);
         $up_proj->title = $request['upd_title'];
+        if ($up_proj->title === NULL) {
+            return redirect('/projects')->with('status_error', 'Project creation failed.');
+        }
         return ($up_proj->save() == 1) ?
             redirect('/projects')->with('status_success', 'Project info updated!') :
             redirect('/projects')->with('status_error', 'Project update failed.');

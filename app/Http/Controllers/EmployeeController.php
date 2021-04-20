@@ -26,9 +26,9 @@ class EmployeeController extends Controller
         $newEmp = new Employee();
         $newEmp->name = $request['fname'];
         $newEmp->project_id = $request['assign_proj'];
-        // if ($newBp->title === NULL or $newBp->content === NULL) {
-        //     return redirect('/posts')->with('status_error', 'Post creation failed.');
-        // }
+        if ($newEmp->name === NULL) {
+            return redirect('/employees')->with('status_error', 'Employee addition failed.');
+        }
         return ($newEmp->save() == 1)
             ? redirect('/employees')->with('status_success', 'Employee added successfully!')
             : redirect('/employees')->with('status_error', 'Employee addition failed.');
@@ -48,6 +48,9 @@ class EmployeeController extends Controller
         $up_emp = Employee::find($id);
         $up_emp->name = $request['fname'];
         $up_emp->project_id = $request['assign_proj'];
+        if ($up_emp->name === NULL) {
+            return redirect('/employees')->with('status_error', 'Employee addition failed.');
+        }
         return ($up_emp->save() == 1) ?
             redirect('/employees')->with('status_success', 'Employee info updated!') :
             redirect('/employees')->with('status_error', 'Employee info update failed.');
