@@ -2,7 +2,7 @@
 
 ## Description:
 
-CRUD (create, read, update, delete) app developed with Laravel framwork. Guest user can only access the 'read' feature of the app. **Registration and login are required to access all of the other features**:
+CRUD (create, read, update, delete) app developed with Laravel framework. Guest user can only access the 'read' feature of the app. **Registration and login are required to access all of the other features**:
 
 -   Employees table:
 
